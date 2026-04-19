@@ -1,13 +1,25 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-void main() {
-  //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-  // to see how IntelliJ IDEA suggests fixing it.
-  IO.println(String.format("Hello and welcome!"));
+import br.com.jogo_rpg.model.jogo.Jogo;
 
-  for (int i = 1; i <= 5; i++) {
-    //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-    // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-    IO.println("i = " + i);
-  }
+Scanner in = new Scanner(System.in);
+
+Jogo jogo;
+
+void main() {
+
+    boolean running = true;
+    while (running) {
+        System.out.println("1- Iniciar novo jogo");
+        System.out.println("0- Sair");
+
+        var opcEscolhida = in.nextInt();
+        switch (opcEscolhida) {
+            case 1: jogo = new Jogo();
+                    jogo.iniciarJogo();
+                        break;
+            case 0: running=false;
+                        break;
+            default: System.out.println("Opcao inválida");
+        }
+    }
+
 }
